@@ -1,0 +1,25 @@
+{
+  "name": "ecommerce-frontend-optimized",
+  "version": "1.0.0",
+  "description": "Optimized e-commerce frontend with image compression and performance enhancements",
+  "main": "index-optimized.html",
+  "scripts": {
+    "dev": "http-server -p 3000 -c-1",
+    "build": "node scripts/build-optimizer.js",
+    "optimize-images": "node scripts/optimize-images.js",
+    "lighthouse": "lighthouse http://localhost:3000 --output=json --output-path=./lighthouse-report.json",
+    "serve": "http-server -p 3000 -c3600"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1",
+    "lighthouse": "^11.0.0",
+    "sharp": "^0.32.6",
+    "imagemin": "^8.0.1",
+    "imagemin-webp": "^8.0.0",
+    "imagemin-mozjpeg": "^10.0.0",
+    "imagemin-pngquant": "^9.0.2"
+  },
+  "keywords": ["ecommerce", "optimization", "performance", "responsive-images", "lazy-loading"],
+  "author": "Your Name",
+  "license": "MIT"
+}

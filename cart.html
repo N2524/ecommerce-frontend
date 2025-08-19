@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart - E-Commerce Frontend</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/product-detail-updated.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .cart-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #eee;
+        }
+
+        .cart-items {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .cart-item {
+            display: grid;
+            grid-template-columns: 100px 1fr 150px 100px 100px 50px;
+            gap: 1rem;
+            align-items: center;
+            padding: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .cart-item:last-child {
+            border-bottom: none;
+        }
+
+        .cart-item-image {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+
+        .cart-item-details h4 {
+            margin: 0 0 0.5rem 0;
+            color: #333;
+        }
+
+        .cart-item-details p {
+            margin: 0.25rem 0;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .quantity-controls {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .quantity-controls input {
+            width: 50px;
+            text-align: center;
+            padding: 0.25rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .quantity-btn {
+            width: 30px;
+            height: 30px;
+            border: none;
+            background: #f8f9fa;
+            cursor: pointer;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .quantity-btn:hover {
+            background: #e9ecef;
+        }
+
+        .remove-btn {
+            background: #dc3545;
+            color: white;
+            border: none;
+            padding: 0.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.8rem;
+        }
+
+        .remove-btn:hover {
+            background: #c82333;
+        }
+
+        .cart-summary {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+
+        .summary-row.total {
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-top: 2px solid #eee;
+            padding-top: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .empty-cart {
+            text-align: center;
+            padding: 3rem;
+            color: #666;
+        }
+
+        .empty-cart i {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            color: #ddd;
+        }
+
+        .continue-shopping {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.75rem 1.5rem;
+            background: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+
+        .checkout-btn {
+            width: 100%;
+            padding: 1rem;
+            background: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            margin-top: 1rem;
+        }
+
+        .checkout-btn:hover {
+            background: #218838;
+        }
+
+        .checkout-btn:disabled {
+            background: #6c757d;
+            cursor: not-allowed;
+        }
+
+        @media (max-width: 768px) {
+            .cart-item {
+                grid-template-columns: 1fr;
+                gap: 0.5rem;
+                text-align: center;
+            }
+
+            .cart-item-image {
+                margin: 0 auto;
+            }
+
+            .quantity-controls {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="navbar-brand">
+            <img src="assets/images/logo.webp" alt="Brand Logo" class="logo" />
+        </div>
+        <div class="navbar-menu">
+            <div class="navbar-nav">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="product.html" class="nav-link">Products</a>
+                <a href="/about" class="nav-link">About</a>
+                <a href="/contact" class="nav-link">Contact</a>
+            </div>
+            <div class="cart-icon">
+                <span class="cart-badge" id="cart-badge">0</span>
+                <i class="fa fa-shopping-cart"></i>
+            </div>
+        </div>
+        <button class="hamburger-menu" id="hamburger" aria-label="Open menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+
+    <!-- Cart Content -->
+    <div class="cart-container">
+        <div class="cart-header">
+            <h1>Shopping Cart</h1>
+            <span id="cart-count">0 items</span>
+        </div>
+
+        <div id="cart-content">
+            <!-- Cart items will be populated here -->
+        </div>
+
+        <div id="cart-summary" class="cart-summary" style="display: none;">
+            <div class="summary-row">
+                <span>Subtotal:</span>
+                <span id="subtotal">$0.00</span>
+            </div>
+            <div class="summary-row">
+                <span>Shipping:</span>
+                <span id="shipping">$0.00</span>
+            </div>
+            <div class="summary-row">
+                <span>Tax:</span>
+                <span id="tax">$0.00</span>
+            </div>
+            <div class="summary-row total">
+                <span>Total:</span>
+                <span id="cart-total">$0.00</span>
+            </div>
+            <button class="checkout-btn" id="checkout-btn" disabled>
+                Proceed to Checkout
+            </button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About Us</h3>
+                <p>Your trusted destination for quality products and exceptional service.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="product.html">Products</a></li>
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fa fa-facebook"></i></a>
+                    <a href="#"><i class="fa fa-twitter"></i></a>
+                    <a href="#"><i class="fa fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="scripts/cart-service.js"></script>
+    <script>
+        // Cart page functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeCartPage();
+        });
+
+        function initializeCartPage() {
+            renderCart();
+            updateCartCount();
+            setupCartListeners();
+        }
+
+        function renderCart() {
+            const cart = cartService.getCart();
+            const cartContent = document.getElementById('cart-content');
+            const cartSummary = document.getElementById('cart-summary');
+            
+            if (cart.length === 0) {
+                cartContent.innerHTML = `
+                    <div class="empty-cart">
+                        <i class="fa fa-shopping-cart"></i>
+                        <h3>Your cart is empty</h3>
+                        <p>Add some products to get started!</p>
+                        <a href="product.html" class="continue-shopping">Continue Shopping</a>
+                    </div>
+                `;
+                cartSummary.style.display = 'none';
+                return;
+            }
+
+            let cartHTML = '<div class="cart-items">';
+            cart.forEach((item, index) => {
+                cartHTML += `
+                    <div class="cart-item" data-index="${index}">
+                        <img src="${item.image}" alt="${item.title}" class="cart-item-image">
+                        <div class="cart-item-details">
+                            <h4>${item.title}</h4>
+                            <p>Size: ${item.size || 'N/A'}</p>
+                            <p>Color: ${item.color || 'N/A'}</p>
+                            <p>Price: $${item.price.toFixed(2)}</p>
+                        </div>
+                        <div class="quantity-controls">
+                            <button class="quantity-btn" onclick="updateQuantity(${index}, ${item.quantity - 1})">-</button>
+                            <input type="number" value="${item.quantity}" min="1" max="99" 
+                                   onchange="updateQuantity(${index}, this.value)">
+                            <button class="quantity-btn" onclick="updateQuantity(${index}, ${item.quantity + 1})">+</button>
+                        </div>
+                        <div>
+                            $${(item.price * item.quantity).toFixed(2)}
+                        </div>
+                        <button class="remove-btn" onclick="removeItem(${index})">
+                            <i class="fa fa-trash"></i>
+                        </button>
+                    </div>
+                `;
+            });
+            cartHTML += '</div>';
+            
+            cartContent.innerHTML = cartHTML;
+            cartSummary.style.display = 'block';
+            updateSummary();
+        }
+
+        function updateQuantity(index, newQuantity) {
+            const quantity = Math.max(1, parseInt(newQuantity));
+            if (cartService.updateQuantity(index, quantity)) {
+                renderCart();
+                updateCartCount();
+            }
+        }
+
+        function removeItem(index) {
+            if (cartService.removeItem(index)) {
+                renderCart();
+                updateCartCount();
+            }
+        }
+
+        function updateSummary() {
+            const summary = cartService.getCartSummary();
+            document.getElementById('cart-count').textContent = `${summary.items} item${summary.items !== 1 ? 's' : ''}`;
+            document.getElementById('subtotal').textContent = `$${summary.total}`;
+            document.getElementById('cart-total').textContent = `$${summary.total}`;
+            
+            const checkoutBtn = document.getElementById('checkout-btn');
+            checkoutBtn.disabled = cartService.isEmpty();
+        }
+
+        function updateCartCount() {
+            const count = cartService.getItemCount();
+            document.getElementById('cart-badge').textContent = count;
+        }
+
+        function setupCartListeners() {
+            // Listen for cart changes
+            cartService.addListener(renderCart);
+            cartService.addListener(updateCartCount);
+        }
+
+        // Initialize cart on page load
+        cartService.validateCart();
+    </script>
+</body>
+</html>

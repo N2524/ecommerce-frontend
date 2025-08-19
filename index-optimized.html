@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce Frontend - Optimized</title>
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="assets/images/logo.webp" as="image">
+    <link rel="preload" href="styles/main.css" as="style">
+    
+    <!-- Critical CSS inline -->
+    <style>
+        /* Critical above-the-fold styles */
+        body { margin: 0; font-family: Arial, sans-serif; }
+        .navbar { display: flex; justify-content: space-between; align-items: center; padding: 1rem; }
+        .logo { height: 40px; width: auto; }
+        .hero { display: flex; align-items: center; padding: 2rem; }
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; padding: 1rem; }
+        .grid-item { border: 1px solid #ddd; border-radius: 8px; overflow: hidden; }
+        .w-full { width: 100%; }
+        .h-48 { height: 12rem; }
+        .object-cover { object-fit: cover; }
+    </style>
+    
+    <link rel="stylesheet" href="styles/main.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="styles/image-optimization.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" media="print" onload="this.media='all'">
+    
+    <!-- DNS prefetch for external resources -->
+    <link rel="dns-prefetch" href="//storage.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+</head>
+<body>
+   <nav class="navbar" id="navbar">
+  <div class="navbar-brand">
+    <img src="assets/images/logo.webp" 
+         alt="Brand Logo" 
+         class="logo"
+         width="150" 
+         height="40"
+         loading="eager"
+         decoding="async">
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-nav">
+      <a href="/" class="nav-link">Home</a>
+      <a href="product.html" class="nav-link">Products</a>
+      <a href="/about" class="nav-link">About</a>
+      <a href="/contact" class="nav-link">Contact</a>
+    </div>
+    <form class="search-bar">
+      <input type="text" placeholder="Search products..." />
+      <button type="submit">
+        <i class="fa fa-search"></i>
+        <span class="sr-only">Search</span>
+      </button>
+    </form>
+    <div class="cart-icon">
+      <span class="cart-badge">3</span>
+      <i class="fa fa-shopping-cart"></i>
+    </div>
+    <div class="auth-links">
+      <a href="login.html" class="login-btn">Login</a>
+      <a href="signup.html" class="signup-btn">Sign Up</a>
+    </div>
+  </div>
+  <button class="hamburger-menu" id="hamburger" aria-label="Open menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</nav>
+
+<section class="hero">
+  <div class="fashion-items">
+    <div class="image-container aspect-ratio-box-1-1">
+      <img data-src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/a1d0dabd-48fa-432f-a966-d8f9d7dd8c6e.png"
+           alt="Stylish sunglasses with metallic frames"
+           class="fashion-item lazy"
+           width="300"
+           height="300"
+           loading="lazy"
+           decoding="async">
+    </div>
+    <div class="image-container aspect-ratio-box-1-1">
+      <img data-src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/ff4d3833-dfb9-4a02-a1ce-b367982c9764.png"
+           alt="Trendy leather handbag on white background"
+           class="fashion-item lazy"
+           width="300"
+           height="300"
+           loading="lazy"
+           decoding="async">
+    </div>
+    <div class="image-container aspect-ratio-box-1-1">
+      <img data-src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/fd534c25-44ed-4d0a-bd96-f6f1d332de90.png"
+           alt="Minimalist wristwatch with black strap"
+           class="fashion-item lazy"
+           width="300"
+           height="300"
+           loading="lazy"
+           decoding="async">
+    </div>
+    <div class="image-container aspect-ratio-box-1-1">
+      <img data-src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/cbd58580-4ba1-4e39-aee3-49ccc263d5e8.png"
+           alt="Elegant high heels shoes in blush pink color"
+           class="fashion-item lazy"
+           width="300"
+           height="300"
+           loading="lazy"
+           decoding="async">
+    </div>
+  </div>
+  <div class="hero-content">
+    <h1>New Arrivals!</h1>
+    <p>Discover our curated collection of premium fashion pieces designed for the modern individual. Limited edition items available seasonally.</p>
+    <a href="#collections" class="cta-button">Shop Now</a>
+  </div>
+</section>
+
+<!-- Optimized Product Grid -->
+<section class="product-grid">
+    <article class="grid-item">
+     <div class="image-container aspect-ratio-box-4-3">
+      <img data-src="https://storage.googleapis.com/a1aa/image/f85f7a48-fd84-461e-c092-1e9b6225aa19.jpg"
+           alt="Modern wireless headphones with sleek black design and cushioned ear pads on a white background"
+           class="w-full h-48 object-cover lazy"
+           width="400"
+           height="300"
+           loading="lazy"
+           decoding="async">
+     </div>
+     <div class="product-info">
+      <h3>Modern Wireless Headphones</h3>
+      <p class="price">$99.99</p>
+      <button class="add-to-cart" type="button">
+       Add to Cart
+      </button>
+     </div>
+    </article>
+    
+    <article class="grid-item">
+     <div class="image-container aspect-ratio-box-4-3">
+      <img data-src="https://storage.googleapis.com/a1aa/image/600f7fbc-df75-45c9-4b69-9e9ce74e20c2.jpg"
+           alt="Smart fitness watch with black strap and digital display showing heart rate on a white background"
+           class="w-full h-48 object-cover lazy"
+           width="400"
+           height="300"
+           loading="lazy"
+           decoding="async">
+     </div>
+     <div class="product-info">
+      <h3>Smart Fitness Watch</h3>
+      <p class="price">$149.99</p>
+      <button class="add-to-cart" type="button">
+       Add to Cart
+      </button>
+     </div>
+    </article>
+    
+    <!-- Additional product items with same optimization pattern... -->
+    <!-- Copy the same pattern for all remaining products -->
+    
+    <article class="grid-item">
+     <div class="image-container aspect-ratio-box-4-3">
+      <img data-src="https://storage.googleapis.com/a1aa/image/cea386af-f57e-4ed3-196c-91a01748da80.jpg"
+           alt="Portable Bluetooth speaker in matte black with mesh grille and control buttons on top on a white background"
+           class="w-full h-48 object-cover lazy"
+           width="400"
+           height="300"
+           loading="lazy"
+           decoding="async">
+     </div>
+     <div class="product-info">
+      <h3>Portable Bluetooth Speaker</h3>
+      <p class="price">$79.99</p>
+      <button class="add-to-cart" type="button">
+       Add to Cart
+      </button>
+     </div>
+    </article>
+    
+    <article class="grid-item">
+     <div class="image-container aspect-ratio-box-4-3">
+      <img data-src="https://storage.googleapis.com/a1aa/image/1a147c15-1a18-

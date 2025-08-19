@@ -1,0 +1,127 @@
+/* Image Optimization Styles */
+.lazy {
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.lazy.loaded {
+    opacity: 1;
+}
+
+/* Responsive image container */
+.image-container {
+    position: relative;
+    overflow: hidden;
+    background: #f0f0f0;
+}
+
+.image-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Aspect ratio boxes for preventing layout shift */
+.aspect-ratio-box {
+    position: relative;
+    height: 0;
+    overflow: hidden;
+}
+
+.aspect-ratio-box-16-9 {
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+}
+
+.aspect-ratio-box-4-3 {
+    padding-bottom: 75%; /* 4:3 aspect ratio */
+}
+
+.aspect-ratio-box-1-1 {
+    padding-bottom: 100%; /* 1:1 aspect ratio */
+}
+
+.aspect-ratio-box img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Responsive image breakpoints */
+@media (max-width: 600px) {
+    .responsive-image {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+@media (min-width: 601px) and (max-width: 900px) {
+    .responsive-image {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+@media (min-width: 901px) {
+    .responsive-image {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+/* Blur-up effect for lazy loading */
+.blur-up {
+    filter: blur(5px);
+    transition: filter 0.3s;
+}
+
+.blur-up.loaded {
+    filter: blur(0);
+}
+
+/* Critical image preloading */
+.critical-image {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+/* Responsive image grid */
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+.image-grid img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* Performance optimization for high-res screens */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .retina-optimized {
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+    }
+}
+
+/* Print styles - hide images for print */
+@media print {
+    img {
+        max-width: 100% !important;
+        page-break-inside: avoid;
+    }
+}

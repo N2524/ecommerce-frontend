@@ -1,0 +1,13 @@
+# Redirect rules for SPA routing
+/product/*    /product.html    200
+/cart         /cart.html       200
+/login        /login.html      200
+/signup       /signup.html     200
+/about        /index.html      200
+/contact      /index.html      200
+
+# API routes (if needed for serverless functions)
+/api/*        /.netlify/functions/:splat  200
+
+# Fallback for SPA
+/*            /index.html      200

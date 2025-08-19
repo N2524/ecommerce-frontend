@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" class="login-page">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - E-Commerce Store</title>
+    <link rel="stylesheet" href="styles/auth-modern.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+</head>
+<body>
+    <!-- Header and Navigation -->
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <img src="assets/images/logo.webp" alt="Logo" class="logo" style="height: 50px; width: auto;">
+                </div>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="product.html" class="nav-link">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="cart.html" class="nav-link">Cart</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="login.html" class="nav-link active">Login</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Login Form Section -->
+    <main class="auth-container">
+        <div class="auth-card">
+            <div class="auth-form-section">
+                <div class="auth-header">
+                    <h1>Welcome Back</h1>
+                    <p>Sign in to your account</p>
+                </div>
+
+                <form id="loginForm" class="modern-form">
+                    <div class="form-field">
+                        <label for="loginEmail">Email Address</label>
+                        <input type="email" id="loginEmail" name="email" required 
+                               placeholder="Enter your email" class="form-input">
+                        <span class="error-message" id="emailError"></span>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="loginPassword">Password</label>
+                        <div class="password-wrapper">
+                            <input type="password" id="loginPassword" name="password" required 
+                                   placeholder="Enter your password" class="form-input">
+                            <button type="button" class="password-toggle" id="loginPasswordToggle">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                        <span class="error-message" id="passwordError"></span>
+                    </div>
+
+                    <div class="form-options" style="display: flex; justify-content: space-between; align-items: center; margin: 20px 0;">
+                        <label style="color: white; display: flex; align-items: center; gap: 8px;">
+                            <input type="checkbox" id="rememberMe" style="margin: 0;">
+                            <span>Remember me</span>
+                        </label>
+                        <a href="#" style="color: var(--primary-color); text-decoration: none;">Forgot Password?</a>
+                    </div>
+
+                    <button type="submit" class="modern-button">Sign In</button>
+
+                    <div class="form-footer">
+                        <p>Don't have an account? <a href="signup.html">Sign up here</a></p>
+                    </div>
+                </form>
+            </div>
+
+            <div class="auth-visual">
+                <img src="assets/images/fashion.jpeg" alt="Fashion" class="auth-image">
+                <div class="auth-visual-content">
+                    <h2>Welcome Back</h2>
+                    <p>Discover the latest trends and exclusive offers</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="scripts/auth.js"></script>
+</body>
+</html>

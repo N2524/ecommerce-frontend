@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en" class="signup-page">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - E-Commerce Store</title>
+    <link rel="stylesheet" href="styles/auth-modern.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+</head>
+<body>
+    <!-- Header and Navigation -->
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <img src="assets/images/logo.webp" alt="Logo" class="logo" style="height: 50px; width: auto;">
+                </div>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="product.html" class="nav-link">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="cart.html" class="nav-link">Cart</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="signup.html" class="nav-link active">Sign Up</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Signup Form Section -->
+    <main class="auth-container">
+        <div class="auth-card">
+            <div class="auth-form-section">
+                <div class="auth-header">
+                    <h1>Create Account</h1>
+                    <p>Join our fashion community</p>
+                </div>
+
+                <form id="signupForm" class="modern-form">
+                    <div class="form-field">
+                        <label for="fullName">Full Name</label>
+                        <input type="text" id="fullName" name="fullName" required 
+                               placeholder="Enter your full name" class="form-input">
+                        <span class="error-message" id="nameError"></span>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="signupEmail">Email Address</label>
+                        <input type="email" id="signupEmail" name="email" required 
+                               placeholder="Enter your email" class="form-input">
+                        <span class="error-message" id="emailError"></span>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="signupPassword">Password</label>
+                        <div class="password-wrapper">
+                            <input type="password" id="signupPassword" name="password" required 
+                                   placeholder="Create a password" class="form-input">
+                            <button type="button" class="password-toggle" id="signupPasswordToggle">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                        <div class="password-strength" id="passwordStrength">
+                            <div class="strength-bar">
+                                <div class="strength-fill"></div>
+                            </div>
+                            <span class="strength-text">Password strength</span>
+                        </div>
+                        <span class="error-message" id="passwordError"></span>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="confirmPassword">Confirm Password</label>
+                        <div class="password-wrapper">
+                            <input type="password" id="confirmPassword" name="confirmPassword" required 
+                                   placeholder="Confirm your password" class="form-input">
+                            <button type="button" class="password-toggle" id="confirmPasswordToggle">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                        <span class="error-message" id="confirmPasswordError"></span>
+                    </div>
+
+                    <div class="form-field" style="margin: 20px 0;">
+                        <label style="color: white; display: flex; align-items: center; gap: 8px;">
+                            <input type="checkbox" id="terms" required style="margin: 0;">
+                            <span>I agree to the <a href="#" style="color: var(--primary-color);">Terms & Conditions</a></span>
+                        </label>
+                        <span class="error-message" id="termsError"></span>
+                    </div>
+
+                    <button type="submit" class="modern-button">Create Account</button>
+
+                    <div class="form-footer">
+                        <p>Already have an account? <a href="login.html">Sign in here</a></p>
+                    </div>
+                </form>
+            </div>
+
+            <div class="auth-visual">
+                <img src="assets/images/fashion.jpeg" alt="Fashion" class="auth-image">
+                <div class="auth-visual-content">
+                    <h2>Welcome to Fashion</h2>
+                    <p>Get exclusive access to new arrivals and special offers</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="scripts/auth.js"></script>
+</body>
+</html>

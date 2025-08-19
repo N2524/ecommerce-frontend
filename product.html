@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details - E-Commerce Frontend</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/product-detail-updated.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="navbar-brand">
+            <img src="assets/images/logo.webp" alt="Brand Logo" class="logo" />
+        </div>
+        <div class="navbar-menu">
+            <div class="navbar-nav">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="product.html" class="nav-link">Products</a>
+                <a href="/about" class="nav-link">About</a>
+                <a href="/contact" class="nav-link">Contact</a>
+            </div>
+            <form class="search-bar">
+                <input type="text" placeholder="Search products..." />
+                <button type="submit">
+                    <i class="fa fa-search"></i>
+                    <span class="sr-only">Search</span>
+                </button>
+            </form>
+            <div class="cart-icon">
+                <span class="cart-badge" id="cart-badge">0</span>
+                <i class="fa fa-shopping-cart"></i>
+            </div>
+        </div>
+        <button class="hamburger-menu" id="hamburger" aria-label="Open menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+
+    <!-- Product Detail Section -->
+    <section class="product-detail-container">
+        <div class="product-detail-wrapper">
+            <!-- Product Images -->
+            <div class="product-images">
+                <div class="main-image-container">
+                    <div class="main-image" id="main-image-container">
+                        <img id="product-main-image" src="assets/images/fashion.jpeg" alt="Product Image">
+                        <div class="zoom-lens" id="zoom-lens"></div>
+                    </div>
+                    <div class="zoom-result" id="zoom-result"></div>
+                </div>
+                <div class="thumbnail-images" id="thumbnail-container">
+                    <img src="assets/images/fashion.jpeg" alt="Thumbnail 1" class="thumbnail active" data-src="assets/images/fashion.jpeg">
+                    <img src="assets/images/ele_brand.jpg" alt="Thumbnail 2" class="thumbnail" data-src="assets/images/ele_brand.jpg">
+                    <img src="assets/images/home-decoration.jpg" alt="Thumbnail 3" class="thumbnail" data-src="assets/images/home-decoration.jpg">
+                </div>
+            </div>
+
+            <!-- Product Info -->
+            <div class="product-info">
+                <h1 id="product-title">Premium Cotton T-Shirt</h1>
+                <div class="product-rating">
+                    <div class="stars" id="product-rating">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-o"></i>
+                    </div>
+                    <span id="review-count">(24 reviews)</span>
+                </div>
+                
+                <div class="product-price">
+                    <span id="product-price">$29.99</span>
+                    <span id="original-price" class="original-price">$39.99</span>
+                </div>
+
+                <div class="product-description">
+                    <p id="product-description">Experience ultimate comfort with our Premium Cotton T-Shirt. Made from 100% organic cotton, this shirt offers exceptional softness and breathability. Perfect for casual wear or layering, it features a classic fit that flatters all body types.</p>
+                </div>
+
+                <div class="product-variants">
+                    <div class="variant-group">
+                        <label for="size-select">Size:</label>
+                        <div class="variant-options">
+                            <button class="variant-btn" data-variant="size" data-value="S">S</button>
+                            <button class="variant-btn" data-variant="size" data-value="M">M</button>
+                            <button class="variant-btn" data-variant="size" data-value="L">L</button>
+                            <button class="variant-btn" data-variant="size" data-value="XL">XL</button>
+                            <button class="variant-btn unavailable" data-variant="size" data-value="XXL">XXL</button>
+                        </div>
+                    </div>
+                    
+                    <div class="variant-group">
+                        <label for="color-select">Color:</label>
+                        <div class="variant-options">
+                            <button class="variant-btn color-variant" data-variant="color" data-value="black" style="background-color: black;"></button>
+                            <button class="variant-btn color-variant active" data-variant="color" data-value="white" style="background-color: white;"></button>
+                            <button class="variant-btn color-variant" data-variant="color" data-value="navy" style="background-color: navy;"></button>
+                            <button class="variant-btn color-variant unavailable" data-variant="color" data-value="red" style="background-color: red;"></button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="quantity-selector">
+                    <label for="quantity">Quantity:</label>
+                    <div class="quantity-controls">
+                        <button type="button" id="decrease-quantity" class="qty-btn">-</button>
+                        <input type="number" id="quantity" value="1" min="1" max="10">
+                        <button type="button" id="increase-quantity" class="qty-btn">+</button>
+                    </div>
+                </div>
+
+                <div class="price-summary">
+                    <div class="price-row">
+                        <span>Price:</span>
+                        <span id="base-price">$29.99</span>
+                    </div>
+                    <div class="price-row">
+                        <span>Quantity:</span>
+                        <span id="quantity-display">1</span>
+                    </div>
+                    <div class="price-row total">
+                        <span>Total:</span>
+                        <span id="total-price">$29.99</span>
+                    </div>
+                </div>
+
+                <div class="product-actions">
+                    <button type="button" id="add-to-cart" class="add-to-cart-btn" >
+                        <i class="fa fa-shopping-cart"></i> Add to Cart 
+                    </button>
+                    <button type="button" id="buy-now" class="buy-now-btn">
+                        Buy Now
+                    </button>
+                </div>
+
+                <div class="success-message" id="success-message">
+                    <i class="fa fa-check-circle"></i>
+                    <span>Added to cart successfully!</span>
+                </div>
+
+                <div class="product-meta">
+                    <p><strong>SKU:</strong> <span id="product-sku">TSHIRT-001</span></p>
+                    <p><strong>Category:</strong> <span id="product-category">Clothing</span></p>
+                    <p><strong>Tags:</strong> <span id="product-tags">cotton, t-shirt, casual, premium</span></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product Details Tabs -->
+        <div class="product-details-tabs">
+            <div class="tab-buttons">
+                <button class="tab-button active" data-tab="description">Description</button>
+                <button class="tab-button" data-tab="specifications">Specifications</button>
+                <button class="tab-button" data-tab="reviews">Reviews</button>
+            </div>
+            
+            <div class="tab-content">
+                <div id="description" class="tab-panel active">
+                    <h3>Product Description</h3>
+                    <div id="detailed-description"></div>
+                </div>
+                
+                <div id="specifications" class="tab-panel">
+                    <h3>Technical Specifications</h3>
+                    <div id="product-specs"></div>
+                </div>
+                
+                <div id="reviews" class="tab-panel">
+                    <h3>Customer Reviews</h3>
+                    <div id="reviews-container">
+                        <p>No reviews yet. Be the first to review this product!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Related Products -->
+        <div class="related-products">
+            <h2>You May Also Like</h2>
+            <div class="related-products-grid" id="related-products-container">
+                <!-- Related products will be populated dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About Us</h3>
+                <p>Your trusted destination for quality products and exceptional service.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="product.html">Products</a></li>
+                    <li><a href="/about">About</aThe `app.js` file only contains code for handling the hamburger menu. I will now check the other JavaScript files to find relevant functionality for product handling.
+
+<read_file>
+<path>scripts/cart-service.js</path>
+</read_file>

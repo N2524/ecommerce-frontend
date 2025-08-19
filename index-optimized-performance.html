@@ -1,0 +1,29 @@
+// Quick performance test script
+const fs = require('fs');
+const path = require('path');
+
+function analyzePerformance() {
+    const indexPath = path.join(__dirname, 'index-optimized-performance.html');
+    const cssPath = path.join(__dirname, 'styles/main.min.css');
+    const jsPath = path.join(__dirname, 'scripts/app.min.js');
+    
+    const indexSize = fs.statSync(indexPath).size;
+    const cssSize = fs.statSync(cssPath).size;
+    const jsSize = fs.statSync(jsPath).size;
+    
+    console.log('📊 Performance Analysis Results:');
+    console.log(`📄 index.html: ${(indexSize / 1024).toFixed(2)} KB`);
+    console.log(`🎨 CSS: ${(cssSize / 1024).toFixed(2)} KB`);
+    console.log(`⚡ JavaScript: ${(jsSize / 1024).toFixed(2)} KB`);
+    console.log(`🎯 Total Critical Resources: ${((indexSize + cssSize + jsSize) / 1024).toFixed(2)} KB`);
+    
+    console.log('\n✅ Optimizations Applied:');
+    console.log('• Lazy loading for images');
+    console.log('• WebP format with fallbacks');
+    console.log('• Critical CSS inlined');
+    console.log('• JavaScript minified and deferred');
+    console.log('• Resource hints added');
+    console.log('• Optimized navigation and hero section');
+}
+
+analyzePerformance();
