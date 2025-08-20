@@ -67,6 +67,12 @@ async function displayProductDetails() {
     } else {
         document.querySelector('.product-detail-container').innerHTML = '<div class="error"><h3>Product not found</h3></div>';
     }
+
+    // Debugging logs for elements
+    console.log('Product Title Element:', document.getElementById('product-title'));
+    console.log('Product Price Element:', document.getElementById('product-price'));
+    console.log('Product Description Element:', document.getElementById('product-description'));
+    console.log('Product Main Image Element:', document.getElementById('product-main-image'));
 }
 
 // Function to handle "Add to Cart" functionality

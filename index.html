@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,223 +6,61 @@
     <title>E-Commerce Frontend</title>
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/product-detail.css">
+    <link rel="icon" href="assets/images/logo.webp" type="image/x-icon"> <!-- Add favicon link -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
    <nav class="navbar" id="navbar">
-  <div class="navbar-brand">
-    <img src="assets/images/logo.webp" alt="Brand Logo" class="logo" />
-  </div>
-  <div class="navbar-menu">
-    <div class="navbar-nav">
-<a href="index-optimized.html" class="nav-link">Home</a>
-      <a href="product.html" class="nav-link">Products</a>
-      <a href="/about" class="nav-link">About</a>
-      <a href="/contact" class="nav-link">Contact</a>
-    </div>
-    <form class="search-bar">
-      <input type="text" placeholder="Search products..." />
-      <button type="submit">
-        <i class="fa fa-search"></i>
-        <span class="sr-only">Search</span>
+      <div class="navbar-brand">
+        <img src="assets/images/logo.webp" alt="Brand Logo" class="logo" />
+      </div>
+      <div class="navbar-menu">
+        <div class="navbar-nav">
+          <a href="index-optimized.html" class="nav-link">Home</a>
+          <a href="product.html" class="nav-link">Products</a>
+          <a href="/about" class="nav-link">About</a>
+          <a href="/contact" class="nav-link">Contact</a>
+        </div>
+        <form class="search-bar">
+          <input type="text" placeholder="Search products..." />
+          <button type="submit">
+            <i class="fa fa-search"></i>
+            <span class="sr-only">Search</span>
+          </button>
+        </form>
+        <div class="cart-icon">
+          <span class="cart-badge">3</span>
+          <i class="fa fa-shopping-cart"></i>
+        </div>
+        <div class="auth-links">
+          <a href="login.html" class="login-btn">Login</a>
+          <a href="signup.html" class="signup-btn">Sign Up</a>
+        </div>
+      </div>
+      <button class="hamburger-menu" id="hamburger" aria-label="Open menu">
+        <span></span>
+        <span></span>
+        <span></span>
       </button>
-    </form>
-    <div class="cart-icon">
-      <span class="cart-badge">3</span>
-      <i class="fa fa-shopping-cart"></i>
-    </div>
-    <div class="auth-links">
-      <a href="login.html" class="login-btn">Login</a>
-      <a href="signup.html" class="signup-btn">Sign Up</a>
-    </div>
-  </div>
-  <button class="hamburger-menu" id="hamburger" aria-label="Open menu">
-    <span></span>
-    <span></span>
-    <span></span>
-  </button>
-</nav>
-<section class="hero">
-  <div class="fashion-items">
-       <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/a1d0dabd-48fa-432f-a966-d8f9d7dd8c6e.png" alt="Stylish sunglasses with metallic frames" class="fashion-item" />
-            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/ff4d3833-dfb9-4a02-a1ce-b367982c9764.png" alt="Trendy leather handbag on white background" class="fashion-item" />
-            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/fd534c25-44ed-4d0a-bd96-f6f1d332de90.png" alt="Minimalist wristwatch with black strap" class="fashion-item" />
-            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/cbd58580-4ba1-4e39-aee3-49ccc263d5e8.png" alt="Elegant high heels shoes in blush pink color" class="fashion-item" />
-  </div>
-  <div class="hero-content">
-    <h1>New Arrivals!</h1>
-    <p>Discover our curated collection of premium fashion pieces designed for the modern individual. Limited edition items available seasonally.</p>
-    <a href="#collections" class="cta-button">Shop Now</a>
-  </div>
-</section>
+   </nav>
+   <section class="hero">
+      <div class="fashion-items">
+          <!-- Fashion items -->
+      </div>
+      <div class="hero-content">
+          <h1>New Arrivals!</h1>
+          <p>Discover our curated collection of premium fashion pieces designed for the modern individual. Limited edition items available seasonally.</p>
+          <a href="#collections" class="cta-button">Shop Now</a>
+      </div>
+   </section>
+   <section class="product-grid">
+      <!-- Product grid content -->
+   </section>
 
-<!-- Fixed Grid Section -->
-<section class="product-grid">
-    <article class="grid-item">
-     <img alt="Modern wireless headphones with sleek black design and cushioned ear pads on a white background" class="w-full h-48 object-cover" height="300" src="https://storage.googleapis.com/a1aa/image/f85f7a48-fd84-461e-c092-1e9b6225aa19.jpg" width="400"/>
-     <div class="product-info">
-      <h3>Modern Wireless Headphones</h3>
-      <p class="price">$99.99</p>
-      <button class="add-to-cart" type="button">
-       Add to Cart
-      </button>
-     </div>
-    </article>
-    
-    <article class="grid-item">
-     <img alt="Smart fitness watch with black strap and digital display showing heart rate on a white background" class="w-full h-48 object-cover" height="300" src="https://storage.googleapis.com/a1aa/image/600f7fbc-df75-45c9-4b69-9e9ce74e20c2.jpg" width="400"/>
-     <div class="product-info">
-      <h3>Smart Fitness Watch</h3>
-      <p class="price">$149.99</p>
-      <button class="add-to-cart" type="button">
-       Add to Cart
-      </button>
-     </div>
-    </article>
-    
-    <article class="grid-item">
-     <img alt="Portable Bluetooth speaker in matte black with mesh grille and control buttons on top on a white background" class="w-full h-48 object-cover" height="300" src="https://storage.googleapis.com/a1aa/image/cea386af-f57e-4ed3-196c-91a01748da80.jpg" width="400"/>
-     <div class="product-info">
-      <h3>Portable Bluetooth Speaker</h3>
-      <p class="price">$79.99</p>
-      <button class="add-to-cart" type="button">
-       Add to Cart
-      </button>
-     </div>
-    </article>
-    
-    <article class="grid-item">
-     <img alt="Ergonomic office chair with black mesh backrest and cushioned seat on a white background" class="w-full h-48 object-cover" height="300" src="https://storage.googleapis.com/a1aa/image/1a147c15-1a18-4d96-53b6-99fad13198cf.jpg" width="400"/>
-     <div class="product-info">
-      <h3>Ergonomic Office Chair</h3>
-      <p class="price">$199.99</p>
-      <button class="add-to-cart" type="button">
-       Add to Cart
-      </button>
-     </div>
-    </article>
-    
-    <article class="grid-item">
-     <img alt="4K Ultra HD computer monitor with slim bezels and vibrant display on a white background" class="w-full h-48 object-cover" height="300" src="https://storage.googleapis.com/a1aa/image/9ffb38b1-7f6a-4bdc-9742-ec0ff75aefd9.jpg" width="400"/>
-     <div class="product-info">
-      <h3>4K Ultra HD Monitor</h3>
-      <p class="price">$349.99</p>
-      <button class="add-to-cart" type="button">
-       Add to Cart
-      </button>
-     </div>
-    </article>
-    
-    <article class="grid-item">
-     <img alt="Wireless gaming mouse with RGB lighting and ergonomic design on a white background" class="w-full h-48 object-cover" height="300" src="https://storage.googleapis.com/a1aa/image/e899bfaa-b627-4408-587f-24bae33be97d.jpg" width="400"/>
-     <div class="product-info">
-      <h3>Wireless Gaming Mouse</h3>
-      <p class="price">$59.99</p>
-      <button class="add-to-cart" type="button">
-       Add to Cart
-      </button>
-     </div>
-    </article>
-    
-    <article class="grid-item">
-     <img alt="Noise-cancelling earbuds with charging case in black on a white background" class="w-full h-48 object-cover" height="300" src="https://storage.googleapis.com/a1aa/image/7fe70cbd-9ebd-48bc-93f7-1a0e23e808e7.jpg" width="400"/>
-     <div class="product-info">
-      <h3>Noise-Cancelling Earbuds</h3>
-      <p class="price">$129.99</p>
-      <button class="add-to-cart" type="button">
-       Add to Cart
-      </button>
-     </div>
-    </article>
-    
-    <article class="grid-item">
-     <img alt="Smart home assistant device with circular design and glowing blue light on a white background" class="w-full h-48 object-cover" height="300" src="https://storage.googleapis.com/a1aa/image/f117e08d-1b76-4f7a-d387-f4010c943e33.jpg" width="400"/>
-     <div class="product-info">
-      <h3>Smart Home Assistant</h3>
-      <p class="price">$89.99</p>
-      <button class="add-to-cart" type="button">
-       Add to Cart
-      </button>
-     </div>
-    </article>
-    
-    <article class="grid-item">
-     <img alt="Electric standing desk with wooden top and black metal legs on a white background" class="w-full h-48 object-cover" height="300" src="https://storage.googleapis.com/a1aa/image/2c0bd656-f507-48e0-d7f3-a3deb48648e1.jpg" width="400"/>
-     <div class="product-info">
-      <h3>Electric Standing Desk</h3>
-      <p class="price">$499.99</p>
-      <button class="add-to-cart" type="button">
-       Add to Cart
-      </button>
-     </div>
-    </article>
-    
-    <article class="grid-item">
-     <img alt="High-speed external SSD drive with sleek black casing on a white background" class="w-full h-48 object-cover" height="300" src="https://storage.googleapis.com/a1aa/image/ecc194f8-0495-4a58-203a-dc836f1a86d5.jpg" width="400"/>
-     <div class="product-info">
-      <h3>High-Speed External SSD</h3>
-      <p class="price">$159.99</p>
-      <button class="add-to-cart" type="button">
-       Add to Cart
-      </button>
-     </div>
-    </article>
-    
-    <article class="grid-item">
-     <img alt="Wireless charging pad with black circular design on a white background" class="w-full h-48 object-cover" height="300" src="https://storage.googleapis.com/a1aa/image/8a5e419a-4fc8-4654-45ce-fd92086dd1da.jpg" width="400"/>
-     <div class="product-info">
-      <h3>Wireless Charging Pad</h3>
-      <p class="price">$39.99</p>
-      <button class="add-to-cart" type="button">
-       Add to Cart
-      </button>
-     </div>
-    </article>
-    
-    <article class="grid-item">
-     <img alt="Compact digital camera with black body and lens on a white background" class="w-full h-48 object-cover" height="300" src="https://storage.googleapis.com/a1aa/image/5577a9b7-7afb-4140-50ee-2b2cfa227c82.jpg" width="400"/>
-     <div class="product-info">
-      <h3>Compact Digital Camera</h3>
-      <p class="price">$249.99</p>
-      <button class="add-to-cart" type="button">
-       Add to Cart
-      </button>
-     </div>
-    </article>
-    
-    <article class="grid-item">
-     <img alt="Smartphone gimbal stabilizer with black handle and phone mount on a white background" class="w-full h-48 object-cover" height="300" src="https://storage.googleapis.com/a1aa/image/44114fac-e399-4002-ed99-75583a85255e.jpg" width="400"/>
-     <div class="product-info">
-      <h3>Smartphone Gimbal Stabilizer</h3>
-      <p class="price">$119.99</p>
-      <button class="add-to-cart" type="button">
-       Add to Cart
-      </button>
-     </div>
-    </article>
-</section>
-
-<script src="scripts/app.js"></script>
-<script src="scripts/api-service.js"></script>
-    <script src="scripts/cart-service.js"></script>
-    <script src="scripts/product-detail.js"></script>
-    <script src="scripts/product-renderer.js"></script>
+   <script src="scripts/app.js"></script>
+   <script src="scripts/api-service.js"></script>
+   <script src="scripts/cart-service.js"></script>
+   <script src="scripts/product-detail.js"></script>
+   <script src="scripts/product-renderer.js"></script>
 </body>
 </html>
-=======
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E-Commerce Frontend</title>
-    <link rel="stylesheet" href="styles/main.css">
-</head>
-<body>
-    <header>
-        <h1>Welcome to Our Online Store</h1>
-    </header>
-    <script src="scripts/app.js"></script>
-</body>
-</html>
->>>>>>> 3725bd54f50f9d7a6c00a55a32af0e4dc5617e7b

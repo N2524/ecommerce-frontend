@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # Dependencies
 node_modules/
 npm-debug.log*
@@ -57,7 +57,7 @@ logs
 # Temporary files
 tmp/
 temp/
-=======
+
 # Logs
 logs
 *.log
@@ -83,4 +83,4 @@ dist-ssr
 *.sln
 *.sw?
 .env
->>>>>>> 3725bd54f50f9d7a6c00a55a32af0e4dc5617e7b
+
