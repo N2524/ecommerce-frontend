@@ -77,33 +77,58 @@ async function displayProductDetails() {
 
 // Function to handle "Add to Cart" functionality
 function addToCart() {
-    const productId = getUrlParameter('id');
-    const product = {
-        id: parseInt(productId),
-        title: document.getElementById('product-title').innerText,
-        price: parseFloat(document.getElementById('product-price').innerText.replace('$', '')),
-        image: document.getElementById('product-main-image').src,
-        quantity: parseInt(document.getElementById('quantity').value),
-        size: document.querySelector('.variant-btn[data-variant="size"].active')?.dataset.value || '',
-        color: document.querySelector('.variant-btn[data-variant="color"].active')?.dataset.value || ''
-    };
-
-    if (cartService.addItem(product)) {
-        // Show success message
-        const successMsg = document.getElementById('success-message');
-        successMsg.style.display = 'block';
-        setTimeout(() => {
-            successMsg.style.display = 'none';
-        }, 3000);
+    try {
+        const productId = getUrlParameter('id');
         
-        // Update cart badge
-        document.getElementById('cart-badge').textContent = cartService.getItemCount();
+        // Get active variant buttons with fallback for older browsers
+        const activeSizeElement = document.querySelector('.variant-btn[data-variant="size"].active');
+        const activeColorElement = document.querySelector('.variant-btn[data-variant="color"].active');
+        
+        const product = {
+            id: parseInt(productId),
+            title: document.getElementById('product-title').innerText,
+            price: parseFloat(document.getElementById('product-price').innerText.replace('$', '')),
+            image: document.getElementById('product-main-image').src,
+            quantity: parseInt(document.getElementById('quantity').value),
+            size: activeSizeElement ? activeSizeElement.dataset.value : '',
+            color: activeColorElement ? activeColorElement.dataset.value : ''
+        };
+
+        if (window.cartService && window.cartService.addItem(product)) {
+            // Show success message
+            const successMsg = document.getElementById('success-message');
+            if (successMsg) {
+                successMsg.style.display = 'block';
+                setTimeout(() => {
+                    successMsg.style.display = 'none';
+                }, 3000);
+            }
+            
+            // Update cart badge
+            const cartBadge = document.getElementById('cart-badge');
+            if (cartBadge) {
+                cartBadge.textContent = cartService.getItemCount();
+            }
+        } else {
+            console.error('Cart service not available or failed to add item');
+        }
+    } catch (error) {
+        console.error('Error adding to cart:', error);
     }
 }
 
 // Event listeners
 document.addEventListener('DOMContentLoaded', () => {
-    displayProductDetails();
-    
-    document.getElementById('add-to-cart').addEventListener('click', addToCart);
+    try {
+        displayProductDetails();
+        
+        const addToCartBtn = document.getElementById('add-to-cart');
+        if (addToCartBtn) {
+            addToCartBtn.addEventListener('click', addToCart);
+        } else {
+            console.warn('Add to cart button not found');
+        }
+    } catch (error) {
+        console.error('Error initializing product detail page:', error);
+    }
 });

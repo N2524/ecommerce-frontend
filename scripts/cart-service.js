@@ -11,9 +11,28 @@ class CartService {
     }
 
     /**
+     * Check if localStorage is available
+     */
+    isLocalStorageAvailable() {
+        try {
+            const test = 'test';
+            localStorage.setItem(test, test);
+            localStorage.removeItem(test);
+            return true;
+        } catch (e) {
+            return false;
+        }
+    }
+
+    /**
      * Load cart from localStorage
      */
     loadCart() {
+        if (!this.isLocalStorageAvailable()) {
+            console.warn('localStorage is not available, using in-memory cart');
+            return [];
+        }
+        
         try {
             const savedCart = localStorage.getItem(this.cartKey);
             return savedCart ? JSON.parse(savedCart) : [];
@@ -27,6 +46,12 @@ class CartService {
      * Save cart to localStorage
      */
     saveCart() {
+        if (!this.isLocalStorageAvailable()) {
+            console.warn('localStorage is not available, cart not persisted');
+            this.notifyListeners();
+            return;
+        }
+        
         try {
             localStorage.setItem(this.cartKey, JSON.stringify(this.cart));
             this.notifyListeners();
